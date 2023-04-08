@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+post1 = WikiPost.create!(title: 'Funny Frogs')
+post2 = WikiPost.create!(title: 'Monkey Facts')
+post3 = WikiPost.create!(title: 'Do Spiders Dream?')
+post4 = WikiPost.create!(title: 'Penguin Fantasy')

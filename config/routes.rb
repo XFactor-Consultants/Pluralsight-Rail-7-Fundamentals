@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources :wiki_posts
-  get 'welcome/index'
-  get 'welcome/about'
-  get '/about', to: redirect('/welcome/about')
   root 'welcome#index'
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :wiki_posts, path: 'wiki_posts'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :welcome do
+    get 'about', to: 'about', as: 'about'
+  end
+
+  get '/about', to: redirect('/welcome/about')
+
 end
