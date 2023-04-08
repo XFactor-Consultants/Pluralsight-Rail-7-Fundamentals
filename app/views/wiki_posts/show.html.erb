@@ -2,6 +2,10 @@
 
 <%= render @wiki_post %>
 
+<%= @wiki_post.title %>
+<p>Created on <%= @wiki_post.created_at.strftime('%B %d, %Y') %></p>
+
+
 <div>
   <%= link_to "Edit this wiki post", edit_wiki_post_path(@wiki_post) %> |
   <%= link_to "Back to wiki posts", wiki_posts_path %>

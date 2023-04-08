@@ -1,9 +1,15 @@
 <h1>New wiki post</h1>
+<%= form_with model: @wiki_post, local: true do |form| %>
 
-<%= render "form", wiki_post: @wiki_post %>
-
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.submit "Create" %>
+  </div>
+<% end %>
 <br>
-
 <div>
   <%= link_to "Back to wiki posts", wiki_posts_path %>
 </div>

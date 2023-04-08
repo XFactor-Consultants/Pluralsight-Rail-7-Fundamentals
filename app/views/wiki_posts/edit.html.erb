@@ -1,7 +1,15 @@
 <h1>Editing wiki post</h1>
 
-<%= render "form", wiki_post: @wiki_post %>
+<%= form_with model: @wiki_post, local: true do |form| %>
 
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.submit "Edit" %>
+  </div>
+<% end %>
 <br>
 
 <div>
