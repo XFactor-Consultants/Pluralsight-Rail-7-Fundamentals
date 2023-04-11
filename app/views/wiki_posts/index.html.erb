@@ -21,5 +21,12 @@
   </tbody>
 </table>
 
+<h2>Site contributors: </h2>
+<ul>
+  <% @wiki_posts.contributors.compact.each do |contributor| %>
+    <li><%= contributor.titleize %></li>
+  <% end %>
+</ul>
+
 
 <%= link_to "New wiki post", new_wiki_post_path %>
