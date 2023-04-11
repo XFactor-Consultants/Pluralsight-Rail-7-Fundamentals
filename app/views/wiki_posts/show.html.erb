@@ -2,9 +2,10 @@
 
 <%= render @wiki_post %>
 
-<%= @wiki_post.title %>
+<h1><%= @wiki_post.title.titleize %></h1>
 <p>Created on <%= @wiki_post.created_at.strftime('%B %d, %Y') %></p>
-
+<p>Description: <%= @wiki_post.description %></p>
+<p>Author: <%=@wiki_post.author.titleize %><p>
 
 <div>
   <%= link_to "Edit this wiki post", edit_wiki_post_path(@wiki_post) %> |
