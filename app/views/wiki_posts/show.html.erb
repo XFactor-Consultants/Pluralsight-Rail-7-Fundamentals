@@ -7,9 +7,14 @@
 <p>Description: <%= @wiki_post.description %></p>
 <p>Author: <%=@wiki_post.author.titleize %><p>
 
+<% if @wiki_post.image.attached? %>
+  <%= image_tag @wiki_post.image %>
+<% end %>
+
+
 <div>
   <%= link_to "Edit this wiki post", edit_wiki_post_path(@wiki_post) %> |
   <%= link_to "Back to wiki posts", wiki_posts_path %>
 
-  <%= button_to "Destroy this wiki post", @wiki_post, method: :delete %>
+  <%= button_to "Delete", @wiki_post, method: :delete, form: { data: { turbo_confirm: "Are you sure you want to delete #{@wiki_post.title}?" } } %>
 </div>

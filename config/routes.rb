@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   end
 
   get '/about', to: redirect('/welcome/about')
-
 end
