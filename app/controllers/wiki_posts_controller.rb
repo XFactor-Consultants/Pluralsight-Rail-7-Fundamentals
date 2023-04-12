@@ -1,6 +1,5 @@
 class WikiPostsController < ApplicationController
-  before_action :set_wiki_post, only: %i[ show edit update destroy ]
-
+  before_action :set_wiki_post, only: %i[show edit update destroy]
 
   # GET /wiki_posts or /wiki_posts.json
   def index
@@ -8,13 +7,9 @@ class WikiPostsController < ApplicationController
   end
 
   # GET /wiki_posts/1 or /wiki_posts/1.json
-  def show
+  def show; end
 
-  end
-
-  def example
-
-  end
+  def example; end
 
   # GET /wiki_posts/new
   def new
@@ -22,8 +17,7 @@ class WikiPostsController < ApplicationController
   end
 
   # GET /wiki_posts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /wiki_posts or /wiki_posts.json
   def create
@@ -31,7 +25,7 @@ class WikiPostsController < ApplicationController
 
     respond_to do |format|
       if @wiki_post.save
-        format.html { redirect_to wiki_post_url(@wiki_post), notice: "Wiki post was successfully created." }
+        format.html { redirect_to wiki_post_url(@wiki_post), notice: 'Wiki post was successfully created.' }
         format.json { render :show, status: :created, location: @wiki_post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +38,7 @@ class WikiPostsController < ApplicationController
   def update
     respond_to do |format|
       if @wiki_post.update(wiki_post_params)
-        format.html { redirect_to wiki_post_url(@wiki_post), notice: "Wiki post was successfully updated." }
+        format.html { redirect_to wiki_post_url(@wiki_post), notice: 'Wiki post was successfully updated.' }
         format.json { render :show, status: :ok, location: @wiki_post }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,19 +52,20 @@ class WikiPostsController < ApplicationController
     @wiki_post.destroy
 
     respond_to do |format|
-      format.html { redirect_to wiki_posts_url, notice: "Wiki post was successfully destroyed." }
+      format.html { redirect_to wiki_posts_url, notice: 'Wiki post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_wiki_post
-      @wiki_post = WikiPost.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def wiki_post_params
-      params.fetch(:wiki_post, {}).permit(:title, :description, :author)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_wiki_post
+    @wiki_post = WikiPost.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def wiki_post_params
+    params.fetch(:wiki_post, {}).permit(:title, :description, :author, :image)
+  end
 end
