@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
   end
 
   def about
+    @wiki_posts = WikiPost.all
   end
 
 end
